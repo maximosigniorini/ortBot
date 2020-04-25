@@ -17,6 +17,10 @@ client.on('message', async message => {
     let miMensaje = message.content
     miMensaje = miMensaje.slice(2)
 
+    if(miMensaje == "help"){
+      message.channel.send("Capo aca te van todos los soniditos: " + sonidos)
+    }
+
     // if (miMensaje.length > 1) {
     //   leerComando(comando, args, mensaje).then( (res) => {
     //   }).catch( (err) => {
