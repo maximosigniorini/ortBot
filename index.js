@@ -34,28 +34,26 @@ async function leerComando(miMensaje, message){
 
   const voiceChannel = await message.member.voice.channel;
 
-  if(miMensaje == "help"){
-    message.reply("Capo aca te van todos los soniditos: " + sonidos)
-  }
-
   if(!voiceChannel){
     message.reply("Entra al canal potze")
   }
 
   for(let i = 0;i < sonidos.length;i++){
-
     if(miMensaje == sonidos[i]){
+      misSonidos.push(sonidos[i])
+      console.log(misSonidos)
       isReady = false;
       voiceChannel.join().then(connection => {
-        const dispatcher = connection.play('./Audio/' + sonidos[i] + '.ogg');
+        const dispatcher = connection.play('./Audio/' + misSonidos[0] + '.ogg');
         dispatcher.on('finish', end => {
+          misSonidos.shift()
           voiceChannel.leave();
         })
       }).catch(err => console.log(err));
 
       isReady = true;
-    } else {
-      message.reply("Ese sonidero no existe todavia kinga, mandaselo a Maxi")
+    } else if(miMensaje === "help"){
+      message.reply("Capo aca te van todos los soniditos: " + sonidos)
       return;
     }
   }
