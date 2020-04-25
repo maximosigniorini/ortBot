@@ -11,54 +11,33 @@ client.once('ready', () => {
 
 //Funcionamiento central del bot
 client.on('message', async message => {
-const voiceChannel = await message.member.voice.channel;
-let miMensaje = message.content
-miMensaje = miMensaje.slice(2)
 
-for(let i = 0;i < sonidos.length;i++){
+  if(message.content.includes(prefix)){
+    const voiceChannel = await message.member.voice.channel;
+    let miMensaje = message.content
+    miMensaje = miMensaje.slice(2)
 
-  if(miMensaje == sonidos[i]){
-    isReady = false;
-       voiceChannel.join().then(connection => {
-         const dispatcher = connection.play('./Audio/' + sonidos[i] + '.ogg');
-         dispatcher.on("end", end => {
-           voiceChannel.leave();
-         })
-         }).catch(err => console.log(err));
+    // if (miMensaje.length > 1) {
+    //   leerComando(comando, args, mensaje).then( (res) => {
+    //   }).catch( (err) => {
+    //     message.reply(err.message);
+    //   });
 
-         isReady = true;
-   }
-}
+    for(let i = 0;i < sonidos.length;i++){
 
-  // switch(message.content){
-  //
-  //   case '! traicionera':
-  //
-  //     isReady = false;
-  //     voiceChannel.join().then(connection => {
-  //       const dispatcher = connection.play('./Audio/traicionera.ogg');
-  //       dispatcher.on("end", end => {
-  //         voiceChannel.leave();
-  //       })
-  //       }).catch(err => console.log(err));
-  //
-  //       isReady = true;
-  //
-  //     break;
-  //
-  //   case '! acho':
-  //
-  //     isReady = false;
-  //     voiceChannel.join().then(connection => {
-  //       const dispatcher = connection.play('./Audio/acho.ogg');
-  //       dispatcher.on("end", end => {
-  //       voiceChannel.leave();
-  //     })
-  //       }).catch(err => console.log(err));
-  //       isReady = true;
-  //
-  //     break;
-  // }
+      if(miMensaje == sonidos[i]){
+        isReady = false;
+        voiceChannel.join().then(connection => {
+          const dispatcher = connection.play('./Audio/' + sonidos[i] + '.ogg');
+          dispatcher.on("end", end => {
+            voiceChannel.leave();
+          })
+        }).catch(err => console.log(err));
+
+        isReady = true;
+      }
+    }
+  }
 })
 
 client.login(token);
