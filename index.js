@@ -1,8 +1,8 @@
 const {Client, MessageAttachment} = require('discord.js');
-const { prefix, token, giphyToken} = require('./config.json');
+const {prefix, token, giphyToken} = require('./config.json');
 const client = new Client();
-
 const fs = require('fs');
+let GphApiClient = require('giphy-js-sdk-core')
 let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"];
 let imagenes = ["lobby"];
 let misSonidos = [];
@@ -10,14 +10,11 @@ let isPlaying = false;
 let comando = []
 let divididosLasPelotas = []
 
-let GphApiClient = require('giphy-js-sdk-core')
 giphy = GphApiClient(giphyToken)
 
 client.once('ready', () => {
   console.log("ORT Bot");
-  console.log("By Maximo Signiorini aka Collatio");
 });
-
 
 //Funcionamiento central del bot
 client.on('message', async message => {
@@ -45,7 +42,7 @@ client.on('message', async message => {
          files: [responseFinal.images.fixed_height.url]
        });
      }).catch(() => {
-       message.channel.send("Error!")
+       message.channel.send("Mmmm que onda buscando nopor kinga?")
      })
   }
 });
@@ -62,6 +59,7 @@ async function leerComando(miMensaje, message) {
       message.reply("Capo aca te van todos los soniditos: " + sonidos);
       message.reply("Y estas son las imagenes: " + imagenes);
       message.reply("Para mandar imagenes escribí ?imagen");
+      message.reply("Para buscar gifs escribir ?g");
       break;
 
     default:
@@ -103,7 +101,6 @@ function dividirComandos(miMensaje) {
   miMensaje = miMensaje.split(",")
   let comando = []
 
-
   for (let i = 0; i < miMensaje.length; i++) {
     if (!fs.existsSync('./Audio/' + miMensaje[i].replace(" ","") + '.ogg')) {
       //Los que estan mal
@@ -125,17 +122,3 @@ let uniqueArray = divididos.filter(function(item, pos, self){
   let miUltimoArray = [comando, uniqueArray]
   return miUltimoArray
 }
-
-
-//giphy shit
-// giphy.search('gifs',{"q": "al lobby pete"})
-//   .then((response) => {
-//     let totalResponses = response.data.length
-//     let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses
-//     let responseFinal = response.data[responseIndex]
-//     message.channel.send("Al lobby, pete", {
-//       files: [responseFinal.images.fixed_height.url]
-//     });
-//   }).catch(() => {
-//     message.channel.send("Error!")
-//   })
