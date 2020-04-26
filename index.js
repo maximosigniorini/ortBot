@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
-const {
+/*const {
   prefix,
   token
 } = require('./config.json');
+*/
 const client = new Discord.Client();
 const fs = require('fs');
 let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"]
