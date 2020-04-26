@@ -1,12 +1,13 @@
-const Discord = require('discord.js');
+const {Client, MessageAttachment} = require('discord.js');
 const {
   prefix,
   token
 } = require('./config.json');
+const client = new Client();
 
-const client = new Discord.Client();
 const fs = require('fs');
-let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"]
+let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"];
+let imagenes = ["lobby"];
 let misSonidos = [];
 let isPlaying = false;
 let comando = []
@@ -15,23 +16,25 @@ let divididosLasPelotas = []
 client.once('ready', () => {
   console.log("ORT Bot");
   console.log("By Maximo Signiorini aka Collatio");
-})
+});
 
 
 //Funcionamiento central del bot
 client.on('message', async message => {
-
   if (message.content.includes(prefix)) {
-    let miMensaje = message.content
-    miMensaje = miMensaje.slice(3)
 
+    let miMensaje = message.content;
+    miMensaje = miMensaje.slice(3);
     if (miMensaje.length > 1) {
       leerComando(miMensaje, message).then((res) => {}).catch((err) => {
         //message.reply(err.message);
       });
     }
+  }else if(message.content === "?lobby"){
+    const attachment = new MessageAttachment("https://i.imgur.com/jKzTlTN.jpg");
+    message.channel.send(attachment);
   }
-})
+});
 
 client.login(token);
 
@@ -43,6 +46,8 @@ async function leerComando(miMensaje, message) {
 
     case 'help':
       message.reply("Capo aca te van todos los soniditos: " + sonidos);
+      message.reply("Y estas son las imagenes: " + imagenes);
+      message.reply("Para mandar imagenes escribí ?imagen");
       break;
 
     default:
