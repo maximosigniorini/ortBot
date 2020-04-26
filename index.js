@@ -1,8 +1,5 @@
 const {Client, MessageAttachment} = require('discord.js');
-const {
-  prefix,
-  token
-} = require('./config.json');
+const { prefix, token, giphyToken} = require('./config.json');
 const client = new Client();
 
 const fs = require('fs');
@@ -12,6 +9,9 @@ let misSonidos = [];
 let isPlaying = false;
 let comando = []
 let divididosLasPelotas = []
+
+let GphApiClient = require('giphy-js-sdk-core')
+giphy = GphApiClient(giphyToken)
 
 client.once('ready', () => {
   console.log("ORT Bot");
@@ -33,6 +33,20 @@ client.on('message', async message => {
   }else if(message.content === "?lobby"){
     const attachment = new MessageAttachment("https://i.imgur.com/jKzTlTN.jpg");
     message.channel.send(attachment);
+  } else if(message.content.startsWith("?g")){
+    let gifMes = message.content;
+    gifMes = gifMes.slice(3);
+    giphy.search('gifs',{"q": gifMes})
+     .then((response) => {
+       let totalResponses = response.data.length
+       let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses
+       let responseFinal = response.data[responseIndex]
+       message.channel.send(gifMes, {
+         files: [responseFinal.images.fixed_height.url]
+       });
+     }).catch(() => {
+       message.channel.send("Error!")
+     })
   }
 });
 
@@ -111,3 +125,17 @@ let uniqueArray = divididos.filter(function(item, pos, self){
   let miUltimoArray = [comando, uniqueArray]
   return miUltimoArray
 }
+
+
+//giphy shit
+// giphy.search('gifs',{"q": "al lobby pete"})
+//   .then((response) => {
+//     let totalResponses = response.data.length
+//     let responseIndex = Math.floor(Math.random() * 10 + 1) % totalResponses
+//     let responseFinal = response.data[responseIndex]
+//     message.channel.send("Al lobby, pete", {
+//       files: [responseFinal.images.fixed_height.url]
+//     });
+//   }).catch(() => {
+//     message.channel.send("Error!")
+//   })
