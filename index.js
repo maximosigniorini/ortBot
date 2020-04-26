@@ -20,7 +20,7 @@ client.once('ready', () => {
 //Funcionamiento central del bot
 client.on('message', async message => {
 
-  if (message.content.includes(prefix)) {
+  if (message.content.includes(process.env.prefix)) {
     let miMensaje = message.content
     miMensaje = miMensaje.slice(3)
 
@@ -32,7 +32,7 @@ client.on('message', async message => {
   }
 })
 
-client.login(token);
+client.login(process.env.TOKEN);
 
 async function leerComando(miMensaje, message) {
 
@@ -51,7 +51,6 @@ async function leerComando(miMensaje, message) {
       }
 
         divididosLasPelotas = dividirComandos(miMensaje)
-        console.log(divididosLasPelotas)
         if(divididosLasPelotas[1].length > 0 ){
           for(let i = 0;i < divididosLasPelotas[1].length;i++){
             message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
@@ -67,7 +66,6 @@ async function leerComando(miMensaje, message) {
       isPlaying = true;
       voiceChannel.join().then(connection => {
           const dispatcher = connection.play('./Audio/' + misSonidos[0] + '.ogg');
-
           dispatcher.on('finish', end => {
             isPlaying = false;
             misSonidos.splice(0,1);
