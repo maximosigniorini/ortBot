@@ -50,59 +50,60 @@ async function leerComando(miMensaje, message) {
         message.reply("Entra al canal potze")
       }
 
-
-
         divididosLasPelotas = dividirComandos(miMensaje)
-        console.log("Las pelotas divididas")
         console.log(divididosLasPelotas)
-        if(divididosLasPelotas[1].length == 0 ){
+        if(divididosLasPelotas[1].length > 0 ){
           for(let i = 0;i < divididosLasPelotas[1].length;i++){
             message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
           }
         }
-        console.log("Me llego: " + divididosLasPelotas[0])
         misSonidos = misSonidos.concat(divididosLasPelotas[0])
         reproducir();
         break;
   }
 
   async function reproducir(){
-    console.log(misSonidos.length)
     if(misSonidos.length > 0 && !isPlaying){
       isPlaying = true;
       voiceChannel.join().then(connection => {
-          console.log("VOY A REPRODUCIR:" + misSonidos[0])
           const dispatcher = connection.play('./Audio/' + misSonidos[0] + '.ogg');
 
           dispatcher.on('finish', end => {
             isPlaying = false;
             misSonidos.splice(0,1);
-            console.log("Lo saque ")
-            console.log(misSonidos)
             reproducir()
           })
       })
     }
-    console.log("Termine de reproducir la collatio")
   }
 
 }
 
-function dividirComandos(miMensaje){
+function dividirComandos(miMensaje) {
   let divididos = []
-   miMensaje = miMensaje.replace(" ", '');
-   miMensaje = miMensaje.split(",")
-   commando = []
-   comando = miMensaje
+  miMensaje = miMensaje.replace(" ","");
+  miMensaje = miMensaje.split(",")
+  let comando = []
 
-for (let i = 0; i < comando.length; i++) {
-  if (!fs.existsSync('./Audio/' + comando[i] + '.ogg')) {
-    let lasPelotas = comando[i]
-    comando.splice(i,1);
-    divididos.push(lasPelotas)
+
+  for (let i = 0; i < miMensaje.length; i++) {
+    if (!fs.existsSync('./Audio/' + miMensaje[i].replace(" ","") + '.ogg')) {
+      //Los que estan mal
+      let lasPelotas = miMensaje[i].replace(" ","");
+      divididos.push(lasPelotas)
+    }
+    if (fs.existsSync('./Audio/' + miMensaje[i].replace(" ","") + '.ogg')) {
+      //Los que estan bien
+      let kapanga = miMensaje[i].replace(" ","")
+      comando.push(kapanga)
+    }
   }
-}
 
-   let miUltimoArray = [comando, divididos]
-   return miUltimoArray
+let uniqueArray = divididos.filter(function(item, pos, self){
+  return self.indexOf(item) == pos;
+});
+
+
+  let miUltimoArray = [comando, uniqueArray]
+  return miUltimoArray
 }
