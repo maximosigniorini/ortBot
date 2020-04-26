@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-/*const {
+const {
   prefix,
   token
 } = require('./config.json');
-*/
+
 const client = new Discord.Client();
 const fs = require('fs');
 let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"]
@@ -21,7 +21,7 @@ client.once('ready', () => {
 //Funcionamiento central del bot
 client.on('message', async message => {
 
-  if (message.content.includes(process.env.prefix)) {
+  if (message.content.includes(prefix)) {
     let miMensaje = message.content
     miMensaje = miMensaje.slice(3)
 
@@ -33,7 +33,7 @@ client.on('message', async message => {
   }
 })
 
-client.login(process.env.TOKEN);
+client.login(token);
 
 async function leerComando(miMensaje, message) {
 
