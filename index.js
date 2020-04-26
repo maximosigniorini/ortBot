@@ -8,6 +8,8 @@ const fs = require('fs');
 let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"]
 let misSonidos = [];
 let isPlaying = false;
+let comando = []
+let divididosLasPelotas = []
 
 client.once('ready', () => {
   console.log("ORT Bot");
@@ -24,7 +26,7 @@ client.on('message', async message => {
 
     if (miMensaje.length > 1) {
       leerComando(miMensaje, message).then((res) => {}).catch((err) => {
-        message.reply(err.message);
+        //message.reply(err.message);
       });
     }
   }
@@ -48,57 +50,59 @@ async function leerComando(miMensaje, message) {
         message.reply("Entra al canal potze")
       }
 
-      if (!fs.existsSync('./Audio/' + miMensaje + '.ogg')) {
-        throw new Error('ese sonidero no lo tengo kinga, pediselo a maxi');
-      }
 
 
-
-       for (let i = 0; i < sonidos.length; i++) {
-         if (miMensaje == sonidos[i]) {
-           misSonidos.push(sonidos[i])
-           console.log(misSonidos)
-           reproducir();
-         }
-       }
-
-      //     voiceChannel.join().then(connection => {
-      //
-      //       const dispatcher = connection.play('./Audio/' + misSonidos[0] + '.ogg');
-      //
-      //       dispatcher.on('start', () => {
-      //         isPlaying = true;
-      //       })
-      //
-      //       dispatcher.on('finish', end => {
-      //         isPlaying = false;
-      //         misSonidos.shift()
-      //         console.log(misSonidos)
-      //         voiceChannel.leave();
-      //       })
-      //     }).catch(err => console.log(err));
-      //   }
-      // }
-
-      break;
+        divididosLasPelotas = dividirComandos(miMensaje)
+        console.log("Las pelotas divididas")
+        console.log(divididosLasPelotas)
+        if(divididosLasPelotas[1].length == 0 ){
+          for(let i = 0;i < divididosLasPelotas[1].length;i++){
+            message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
+          }
+        }
+        console.log("Me llego: " + divididosLasPelotas[0])
+        misSonidos = misSonidos.concat(divididosLasPelotas[0])
+        reproducir();
+        break;
   }
 
   async function reproducir(){
+    console.log(misSonidos.length)
     if(misSonidos.length > 0 && !isPlaying){
       isPlaying = true;
       voiceChannel.join().then(connection => {
-        for(let i = 0;i < misSonidos.length;i++){
-          const dispatcher = connection.play('./Audio/' + misSonidos[i] + '.ogg');
+          console.log("VOY A REPRODUCIR:" + misSonidos[0])
+          const dispatcher = connection.play('./Audio/' + misSonidos[0] + '.ogg');
 
           dispatcher.on('finish', end => {
             isPlaying = false;
-            misSonidos.shift();
-            console.log("Lo saque " + misSonidos)
+            misSonidos.splice(0,1);
+            console.log("Lo saque ")
+            console.log(misSonidos)
             reproducir()
           })
-        }
       })
     }
+    console.log("Termine de reproducir la collatio")
   }
 
+}
+
+function dividirComandos(miMensaje){
+  let divididos = []
+   miMensaje = miMensaje.replace(" ", '');
+   miMensaje = miMensaje.split(",")
+   commando = []
+   comando = miMensaje
+
+for (let i = 0; i < comando.length; i++) {
+  if (!fs.existsSync('./Audio/' + comando[i] + '.ogg')) {
+    let lasPelotas = comando[i]
+    comando.splice(i,1);
+    divididos.push(lasPelotas)
+  }
+}
+
+   let miUltimoArray = [comando, divididos]
+   return miUltimoArray
 }
