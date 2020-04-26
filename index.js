@@ -6,7 +6,8 @@ const {
 const client = new Client();
 
 const fs = require('fs');
-let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"]
+let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina"];
+let imagenes = ["lobby"];
 let misSonidos = [];
 let isPlaying = false;
 
@@ -18,12 +19,10 @@ client.once('ready', () => {
 
 //Funcionamiento central del bot
 client.on('message', async message => {
-
   if (message.content.includes(prefix)) {
 
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
-
     if (miMensaje.length > 1) {
       leerComando(miMensaje, message).then((res) => {}).catch((err) => {
         message.reply(err.message);
@@ -45,6 +44,8 @@ async function leerComando(miMensaje, message) {
 
     case 'help':
       message.reply("Capo aca te van todos los soniditos: " + sonidos);
+      message.reply("Y estas son las imagenes: " + imagenes);
+      message.reply("Para mandar imagenes escribí ?imagen");
       break;
 
     default:
