@@ -10,7 +10,7 @@ let isPlaying = false;
 let comando = []
 let divididosLasPelotas = []
 
-giphy = GphApiClient(giphyToken)
+giphy = GphApiClient(process.env.giphyToken)
 
 client.once('ready', () => {
   console.log("ORT Bot");
