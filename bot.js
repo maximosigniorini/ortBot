@@ -1,5 +1,5 @@
 const {Client, MessageAttachment} = require('discord.js');
-const {prefix, token, giphyToken} = require('./config.json');
+//const {prefix, token, giphyToken} = require('./config.json');
 const client = new Client();
 const fs = require('fs');
 let GphApiClient = require('giphy-js-sdk-core')
@@ -18,7 +18,7 @@ client.once('ready', () => {
 
 //Funcionamiento central del bot
 client.on('message', async message => {
-  if (message.content.includes(prefix)) {
+  if (message.content.includes(process.env.prefix)) {
 
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
@@ -47,7 +47,7 @@ client.on('message', async message => {
   }
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
 
 async function leerComando(miMensaje, message) {
 
