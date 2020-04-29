@@ -15,7 +15,7 @@ giphy = GphApiClient(process.env.giphyToken)
 client.once('ready', () => {
   console.log("ORT Bot");
 });
-
+//a
 //Funcionamiento central del bot
 client.on('message', async message => {
   if (message.content.includes(process.env.prefix)) {
