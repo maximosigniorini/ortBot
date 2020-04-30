@@ -15,6 +15,12 @@ module.exports = {
   },
 
   fotos: function(miMensaje,comando,data){
+
+    let hess = ["BESHHHOO BESSSHOOO","HADAAA","Ayy hola"]
+    let randomHess = hess[Math.floor(Math.random() * hess.length)];
+    let ducho = ["Yo de baja muchachis","Las pastillas de lau"]
+    let randomDucho = ducho[Math.floor(Math.random() * ducho.length)];
+
     if(miMensaje in data){
       let totalResponses = data[miMensaje].length
       let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
@@ -23,6 +29,26 @@ module.exports = {
       switch (miMensaje){
         case 'Jufi':
           comando.channel.send("Alguien Catan?", {files: [name]});
+        break;
+
+        case 'Hess':
+          comando.channel.send(randomHess, {files: [name]});
+        break;
+
+        case 'Ivi':
+          comando.channel.send("Chance?", {files: [name]});
+        break;
+
+        case 'Ducho':
+          comando.channel.send(randomDucho, {files: [name]});
+        break;
+
+        case 'Rochu':
+          comando.channel.send("Sale krunkersito?", {files: [name]});
+        break;
+
+        case 'Deluki':
+          comando.channel.send("Mi vida es una mierda", {files: [name]});
         break;
 
         default:
