@@ -24,6 +24,10 @@ module.exports = {
         case 'Jufi':
           comando.channel.send("Alguien Catan?", {files: [name]});
         break;
+
+        default:
+          comando.channel.send("Ola soy " + miMensaje, {files: [name]});
+        break;
       }
     }
   }
