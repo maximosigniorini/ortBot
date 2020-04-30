@@ -20,9 +20,9 @@ module.exports = {
       let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
       let name = "./img/" + data[miMensaje][responseIndex] + ".jpg"
 
-      switch (miMensaje, {files: [name]}){
+      switch (miMensaje){
         case 'Jufi':
-          comando.channel.send("Alguien Catan?");
+          comando.channel.send("Alguien Catan?", {files: [name]});
         break;
       }
     }
