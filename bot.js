@@ -2,7 +2,7 @@ const {
   Client,
   MessageAttachment
 } = require('discord.js');
-//const {prefix, token, giphyToken} = require('./config.json');
+const {token,prefix} = require('./config.json');
 const client = new Client();
 const fs = require('fs');
 let misFotos = require('./fotos')
@@ -45,7 +45,7 @@ client.once('ready', () => {
 
 //Funcionamiento central del bot
 client.on('message', async message => {
-  if (message.content.includes(process.env.prefix)) {
+  if (message.content.includes(prefix)) {
 
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
@@ -64,7 +64,7 @@ client.on('message', async message => {
   }
 });
 
-client.login(process.env.TOKEN);
+client.login(token);
 
 async function leerComando(miMensaje, message) {
 
@@ -87,11 +87,11 @@ async function leerComando(miMensaje, message) {
       if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
         for (let i = 0; i < divididosLasPelotas[1].length; i++) {
           message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
-          //message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
         }
       }
       misSonidos = misSonidos.concat(divididosLasPelotas[0])
       reproducir();
+
       break;
   }
 
@@ -106,6 +106,10 @@ async function leerComando(miMensaje, message) {
           reproducir()
         })
       })
+    }
+
+    if(misSonidos.length == 0 && !isPlaying){
+      voiceChannel.leave()
     }
   }
 
