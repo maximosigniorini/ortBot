@@ -3,6 +3,7 @@ const {
   MessageAttachment
 } = require('discord.js');
 //const {token,prefix} = require('./config.json');
+const data2 = require('./data.json')
 const client = new Client();
 const fs = require('fs');
 let misFotos = require('./fotos')
@@ -34,7 +35,8 @@ const data = [
   ['Deluki', 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 0, 47, 0, 0, 0, 0, 0, 53, 0, 0, 56, 0, 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 94, 0, 0, 0, 0, 0, 0, 0, 0, 103, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 134, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 145, 0, 0, 148, 0, 0, 0, 152, 0, 154, 0]
 ]
 
-miDiccionario = misFotos.data(data);
+//miDiccionario = misFotos.data(data);
+misFotos.data(data2)
 
 
 client.once('ready', () => {

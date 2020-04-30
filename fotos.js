@@ -1,17 +1,24 @@
 module.exports = {
   data: function (data) {
 
-    let dict = {}
 
     for(let i = 0;i < data.length;i++){
-      let comando = data[i][0]
+      delete data[i].Foto
       let newData = []
-      let dataFilt = data[i].filter(word => word != 0);
-      dataFilt.shift()
-      newData = dataFilt
-      dict[comando] = newData
+      newData.push(data[i])
+      console.log(newData[0].Ducho)
     }
-    return dict;
+    // let dict = {}
+    //
+    // for(let i = 0;i < data.length;i++){
+    //   let comando = data[i][0]
+    //   let newData = []
+    //   let dataFilt = data[i].filter(word => word != 0);
+    //   dataFilt.shift()
+    //   newData = dataFilt
+    //   dict[comando] = newData
+    // }
+    // return dict;
   },
 
   fotos: function(miMensaje,comando,data){
