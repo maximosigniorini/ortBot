@@ -51,7 +51,7 @@ async function leerComando(miMensaje, message) {
 
     case 'help':
       message.reply("Capo aca te van todos los soniditos: " + sonidos);
-      message.reply("Para mandar imagenes escribi o! + tu nombre")
+    //  message.reply("Para mandar imagenes escribi o! + tu nombre")
       break;
 
     default:
