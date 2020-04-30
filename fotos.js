@@ -17,7 +17,7 @@ module.exports = {
   fotos: function(miMensaje,comando,data){
     if(miMensaje in data){
       let totalResponses = data[miMensaje].length
-      let responseIndex = Math.floor(Math.random() * (totalResponses - 1)) % (totalResponses - 1)
+      let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
       let name = "./img/" + data[miMensaje][responseIndex] + ".jpg"
       comando.channel.send("Ola soy " + miMensaje, {files: [name]});
     }
