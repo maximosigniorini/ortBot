@@ -20,6 +20,8 @@ module.exports = {
     let randomHess = hess[Math.floor(Math.random() * hess.length)];
     let ducho = ["Yo de baja muchachis","Las pastillas de lau"]
     let randomDucho = ducho[Math.floor(Math.random() * ducho.length)];
+    let deluki = ["Mi vida es una mierda","Anda a lavarte el orto"]
+    let randomDeluki = ducho[Math.floor(Math.random() * deluki.length)];
 
     if(miMensaje in data){
       let totalResponses = data[miMensaje].length
@@ -48,7 +50,7 @@ module.exports = {
         break;
 
         case 'Deluki':
-          comando.channel.send("Mi vida es una mierda", {files: [name]});
+          comando.channel.send(randomDeluki, {files: [name]});
         break;
 
         default:
