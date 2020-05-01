@@ -52,7 +52,7 @@ client.on('message', async message => {
 
     if(miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
 
-    if (miMensaje != "o!") {
+    if (miMensaje.includes("o!") == false) {
       misFotos.fotos(miMensaje, message, miDiccionario)
 
       if (miMensaje.length > 1) {
