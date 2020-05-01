@@ -18,7 +18,7 @@ module.exports = {
 
     let hess = ["BESHHHOO BESSSHOOO","HADAAA","Ayy hola"]
     let randomHess = hess[Math.floor(Math.random() * hess.length)];
-    let ducho = ["Yo de baja muchachis","Las pastillas de lau"]
+    let ducho = ["Yo de baja muchachis","Las pastillas de lau","Pero claaaaroooo","Y no es poca cosa che"]
     let randomDucho = ducho[Math.floor(Math.random() * ducho.length)];
     let deluki = ["Mi vida es una mierda","Anda a lavarte el orto"]
     let randomDeluki = deluki[Math.floor(Math.random() * deluki.length)];
