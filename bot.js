@@ -50,7 +50,7 @@ client.on('message', async message => {
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
 
-    if(miMensaje.content.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
+    if(miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
 
     if (miMensaje != "o!") {
       misFotos.fotos(miMensaje, message, miDiccionario)
