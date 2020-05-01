@@ -6,7 +6,7 @@ const {
 const client = new Client();
 const fs = require('fs');
 let misFotos = require('./fotos')
-let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina", "paco", "casa", "efe", "bolas", "risa", "bolas2", "perdonas", "bueno", "chance", "enserio"];
+let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina", "paco", "casa", "efe", "bolas", "risa", "bolas2", "perdonas", "bueno", "chance", "enserio", "catan"];
 let imagenes = ["lobby", "Max", "Abi", "Dante", "Ducho", "Eze", "Juan", "Jufi", "Madi", "Nico", "Rochu", "Ivi", "Joaco", "Hess", "Deluki"];
 let misSonidos = [];
 let isPlaying = false;
@@ -50,7 +50,7 @@ client.on('message', async message => {
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
 
-    if(miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
+    if (miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
 
     if (miMensaje.includes("o!") == false) {
       misFotos.fotos(miMensaje, message, miDiccionario)
@@ -84,15 +84,16 @@ async function leerComando(miMensaje, message) {
         message.reply("Entra al canal potze")
       }
 
-      divididosLasPelotas = dividirComandos(miMensaje)
-      if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
-        for (let i = 0; i < divididosLasPelotas[1].length; i++) {
-          message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
+      if (voiceChannel) {
+        divididosLasPelotas = dividirComandos(miMensaje)
+        if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
+          for (let i = 0; i < divididosLasPelotas[1].length; i++) {
+            message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
+          }
         }
+        misSonidos = misSonidos.concat(divididosLasPelotas[0])
+        reproducir();
       }
-      misSonidos = misSonidos.concat(divididosLasPelotas[0])
-      reproducir();
-
       break;
   }
 
@@ -109,7 +110,7 @@ async function leerComando(miMensaje, message) {
       })
     }
 
-    if(misSonidos.length == 0 && !isPlaying){
+    if (misSonidos.length == 0 && !isPlaying) {
       voiceChannel.leave()
     }
   }
