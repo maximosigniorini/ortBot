@@ -6,7 +6,7 @@ const {
 const client = new Client();
 const fs = require('fs');
 let misFotos = require('./fotos')
-let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina", "paco", "casa", "efe", "bolas", "risa", "bolas2", "perdonas", "bueno", "chance"];
+let sonidos = ["Chano", "aparezco", "buenisimo", "fino", "niki", "a4", "aplaudo", "cortito", "hola", "privado", "acho", "basta", "cpiko", "jaram", "skate", "achotapita", "boa", "dios", "love", "traicionera", "ahre", "bob", "filisteo", "marina", "paco", "casa", "efe", "bolas", "risa", "bolas2", "perdonas", "bueno", "chance", "enserio"];
 let imagenes = ["lobby", "Max", "Abi", "Dante", "Ducho", "Eze", "Juan", "Jufi", "Madi", "Nico", "Rochu", "Ivi", "Joaco", "Hess", "Deluki"];
 let misSonidos = [];
 let isPlaying = false;
