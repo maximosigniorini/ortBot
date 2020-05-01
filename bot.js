@@ -58,7 +58,7 @@ client.on('message', async message => {
       if (miMensaje.length > 1) {
         leerComando(miMensaje, message).then((res) => {}).catch((err) => {});
       }
-    } else if (message.content === " lobby") {
+    } else if (message.content === "lobby") {
       const attachment = new MessageAttachment("https://i.imgur.com/jKzTlTN.jpg");
       message.channel.send(attachment);
     }
