@@ -21,7 +21,7 @@ module.exports = {
     let ducho = ["Yo de baja muchachis","Las pastillas de lau"]
     let randomDucho = ducho[Math.floor(Math.random() * ducho.length)];
     let deluki = ["Mi vida es una mierda","Anda a lavarte el orto"]
-    let randomDeluki = ducho[Math.floor(Math.random() * deluki.length)];
+    let randomDeluki = deluki[Math.floor(Math.random() * deluki.length)];
 
     if(miMensaje in data){
       let totalResponses = data[miMensaje].length
