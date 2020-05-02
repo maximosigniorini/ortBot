@@ -46,6 +46,10 @@ client.on('message', async message => {
     }
   }
 
+  if (message.content.includes(process.env.prefix) && !voiceChannel2){
+    message.reply("Entra al lobby potze!")
+  }
+
 });
 
 client.login(process.env.TOKEN);
