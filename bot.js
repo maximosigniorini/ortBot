@@ -24,7 +24,10 @@ client.once('ready', () => {
 
 //Funcionamiento central del bot
 client.on('message', async message => {
-  if (message.content.includes(process.env.prefix)) {
+
+  const voiceChannel2 = await message.member.voice.channel;
+
+  if (message.content.includes(process.env.prefix) && voiceChannel2) {
 
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
