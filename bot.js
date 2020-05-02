@@ -45,6 +45,11 @@ client.on('message', async message => {
       message.channel.send(attachment);
     }
   }
+
+  if (!voiceChannel) {
+    message.reply("Entra al canal potze")
+  }
+
 });
 
 client.login(process.env.TOKEN);
@@ -62,11 +67,6 @@ async function leerComando(miMensaje, message) {
 
     default:
 
-      if (!voiceChannel) {
-        message.reply("Entra al canal potze")
-      }
-
-      if (voiceChannel){
         divididosLasPelotas = dividirComandos(miMensaje)
         if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
           for (let i = 0; i < divididosLasPelotas[1].length; i++) {
@@ -75,7 +75,7 @@ async function leerComando(miMensaje, message) {
         }
         misSonidos = misSonidos.concat(divididosLasPelotas[0])
         reproducir();
-      }
+
       break;
   }
 
