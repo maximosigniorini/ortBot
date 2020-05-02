@@ -46,10 +46,6 @@ client.on('message', async message => {
     }
   }
 
-  if (!voiceChannel2) {
-    message.reply("Entra al canal potze")
-  }
-
 });
 
 client.login(process.env.TOKEN);
