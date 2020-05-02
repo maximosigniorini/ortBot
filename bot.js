@@ -15,7 +15,7 @@ let comando = []
 let divididosLasPelotas = []
 let miDiccionario = {}
 
-miDiccionario = misFotos.data(miData);
+miDiccionario = misFotos.data(miData.data());
 
 client.once('ready', () => {
   console.log("ORT Bot");
