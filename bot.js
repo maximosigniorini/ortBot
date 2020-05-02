@@ -46,7 +46,7 @@ client.on('message', async message => {
     }
   }
 
-  if (!voiceChannel) {
+  if (!voiceChannel2) {
     message.reply("Entra al canal potze")
   }
 
