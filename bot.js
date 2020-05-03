@@ -39,6 +39,7 @@ client.on('message', async message => {
 
     if (miMensaje.includes("o!") == false) {
 
+      let username = "local-user";
       let riveReader = miMensaje.replace(process.env.prefix, ''); // remove bot name from string
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
 
