@@ -73,7 +73,7 @@ async function leerComando(miMensaje, message) {
         divididosLasPelotas = dividirComandos(miMensaje)
         if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
           for (let i = 0; i < divididosLasPelotas[1].length; i++) {
-            message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
+            //message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
           }
         }
         misSonidos = misSonidos.concat(divididosLasPelotas[0])
