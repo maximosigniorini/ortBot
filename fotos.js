@@ -5,9 +5,11 @@ module.exports = {
 
     for(let i = 0;i < data.length;i++){
       let comando = data[i][0]
+      comando = comando.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
       let newData = []
       let dataFilt = data[i].filter(word => word != 0);
       dataFilt.shift()
+      //.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
       newData = dataFilt
       dict[comando] = newData
     }
