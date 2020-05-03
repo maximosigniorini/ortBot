@@ -4,6 +4,8 @@ const {
 } = require('discord.js');
 //const {token,prefix} = require('./config.json');
 const client = new Client();
+const RiveScript = require('rivescript')
+let bot = new RiveScript();
 const fs = require('fs');
 let misFotos = require('./fotos')
 let miData = require('./data')
@@ -15,6 +17,7 @@ let comando = []
 let divididosLasPelotas = []
 let miDiccionario = {}
 
+bot.loadFile("./brain.rive").then(loading_done).catch(loading_error);
 miDiccionario = misFotos.data(miData.data());
 
 client.once('ready', () => {
@@ -32,9 +35,17 @@ client.on('message', async message => {
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
 
-    if (miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
+  //  if (miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
 
     if (miMensaje.includes("o!") == false) {
+
+      let riveReader = miMensaje.replace(prefix, ''); // remove bot name from string
+      riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
+
+      bot.reply(username, riveReader).then(function(reply) {
+        message.reply(reply);
+      });
+
       misFotos.fotos(miMensaje, message, miDiccionario)
 
       if (miMensaje.length > 1) {
@@ -58,15 +69,6 @@ async function leerComando(miMensaje, message) {
 
   const voiceChannel = await message.member.voice.channel;
 
-  switch (miMensaje) {
-
-    case 'help':
-      message.reply("Capo aca te van todos los soniditos: " + sonidos);
-      message.reply("Y las imagenes son: " + imagenes)
-      break;
-
-    default:
-
         divididosLasPelotas = dividirComandos(miMensaje)
         if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
           for (let i = 0; i < divididosLasPelotas[1].length; i++) {
@@ -76,8 +78,6 @@ async function leerComando(miMensaje, message) {
         misSonidos = misSonidos.concat(divididosLasPelotas[0])
         reproducir();
 
-      break;
-  }
 
   async function reproducir() {
     if (misSonidos.length > 0 && !isPlaying) {
@@ -125,4 +125,15 @@ function dividirComandos(miMensaje) {
 
   let miUltimoArray = [comando, uniqueArray]
   return miUltimoArray
+}
+
+function loading_done() {
+  console.log("Bot has finished loading!");
+  // Now the replies must be sorted!
+  bot.sortReplies();
+}
+
+// It's good to catch errors too!
+function loading_error(error, filename, lineno) {
+  console.log("Error when loading files: " + error);
 }
