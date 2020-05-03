@@ -15,12 +15,14 @@ module.exports = {
     return dict;
   },
 
-  fotos: function(miMensaje,comando,data,miMensaje2){
+  fotos: function(comando,data,miMensaje2){
 
     if(miMensaje2 in data){
       let totalResponses = data[miMensaje2].length
       let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
       let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
+      comando.channel.send({files: [name]});
+    } else if(miMensaje2 == "maxi"){
       comando.channel.send({files: [name]});
     }
   }

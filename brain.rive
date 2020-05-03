@@ -3,36 +3,36 @@
 + (hess|lucas)
 - BESHHHOO BESHHHOO
 - HADAAAA
-- Ayy hola
+- ayy hola
 
 + (ducho|gaston|duchi)
-- Yo de baja muchachis
-- Las pastillas de lau
-- Pero claaaaroooo
-- Y no es poca cosa che
+- yo de baja muchachis
+- las pastillas de lau
+- pero claaaaroooo
+- y no es poca cosa che
 
 + (deluki|deluca|delia)
-- Mi vida es una mierda
-- Anda a lavarte el orto
+- mi vida es una mierda
+- anda a lavarte el orto
 
 + (dante|dan)
 - A ver, a mi me parece que
-- Baaaaastttta boludooooo
+- baaaaastttta boludooooo
 
 + (jufi|jufa|juli)
-- Alguien Catan?
+- alguien Catan?
 
 + (ivi|ivana)
 - Chance?
 
-+ rochu
-- Sale krunkersito?
++ (rochu|rocio)
+- sale krunkersito?
 
 + (eze|burin)
-- Eeee me parece que sos un boludo
+- eeee me parece que sos un boludo
 
 + (madoz|madi|juan|joaco|nico|abi|max|maxi|maximo)
-- Ola soy <star>
+- ola soy <star>
 
 + help
 - capo aca te van todos los soniditos: \n
@@ -47,7 +47,7 @@
 - escribi bien boludite
 
 + o
-- Sos bolude o te dicen Nico Aizinas? {weight=30}
-- No empiezes {weight=10}
-- Eso no se dice.... {weight=10}
-- Basta imbecil {weight=10}
+- sos bolude o te dicen Nico Aizinas? {weight=30}
+- no empiezes {weight=10}
+- eso no se dice.... {weight=10}
+- basta imbecil {weight=10}
