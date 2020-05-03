@@ -43,7 +43,7 @@ client.on('message', async message => {
       let riveReader = miMensaje.replace(process.env.prefix, ''); // remove bot name from string
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
 
-      if (!(sonidos[miMensaje])) {
+      if (!(sonidos.includes(miMensaje))) {
         bot.reply(username, riveReader).then(function(reply) {
           message.reply(reply);
         });
