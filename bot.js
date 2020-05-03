@@ -35,7 +35,7 @@ client.on('message', async message => {
     let miMensaje = message.content;
     miMensaje = miMensaje.slice(3);
 
-  //  if (miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
+    //  if (miMensaje.includes("o!")) message.reply("Sos bolude o te dicen Nico Aizinas?");
 
     if (miMensaje.includes("o!") == false) {
 
@@ -43,11 +43,12 @@ client.on('message', async message => {
       let riveReader = miMensaje.replace(process.env.prefix, ''); // remove bot name from string
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
 
-      bot.reply(username, riveReader).then(function(reply) {
-        message.reply(reply);
-      });
-
-      misFotos.fotos(miMensaje, message, miDiccionario,riveReader)
+      if (miMensaje in sonidos == false) {
+        bot.reply(username, riveReader).then(function(reply) {
+          message.reply(reply);
+        });
+      }
+      misFotos.fotos(miMensaje, message, miDiccionario, riveReader)
 
       if (miMensaje.length > 1) {
         leerComando(miMensaje, message).then((res) => {}).catch((err) => {});
@@ -58,7 +59,7 @@ client.on('message', async message => {
     }
   }
 
-  if (message.content.includes(process.env.prefix) && !voiceChannel2){
+  if (message.content.includes(process.env.prefix) && !voiceChannel2) {
     message.reply("Entra al lobby potze!")
   }
 
@@ -70,14 +71,14 @@ async function leerComando(miMensaje, message) {
 
   const voiceChannel = await message.member.voice.channel;
 
-        divididosLasPelotas = dividirComandos(miMensaje)
-        if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
-          for (let i = 0; i < divididosLasPelotas[1].length; i++) {
-            //message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
-          }
-        }
-        misSonidos = misSonidos.concat(divididosLasPelotas[0])
-        reproducir();
+  divididosLasPelotas = dividirComandos(miMensaje)
+  if (divididosLasPelotas[1].length > 0 && !(miMensaje in miDiccionario)) {
+    for (let i = 0; i < divididosLasPelotas[1].length; i++) {
+      //message.reply('el comando ' + divididosLasPelotas[1][i] + ' no lo tengo kinga, pediselo al massi');
+    }
+  }
+  misSonidos = misSonidos.concat(divididosLasPelotas[0])
+  reproducir();
 
 
   async function reproducir() {

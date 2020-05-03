@@ -18,7 +18,6 @@ module.exports = {
   fotos: function(miMensaje,comando,data,miMensaje2){
 
     if(miMensaje2 in data){
-      console.log("SIIII")
       let totalResponses = data[miMensaje2].length
       let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
       let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
