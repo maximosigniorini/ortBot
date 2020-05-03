@@ -23,12 +23,6 @@ module.exports = {
       let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
       comando.channel.send({files: [name]});
     }
-    if(miMensaje2 == "maxi"){
-      let totalResponses2 = data[miMensaje2].length
-      let responseIndex2 = Math.floor(Math.random() * (totalResponses2)) % (totalResponses2)
-      let name = "./img/" + data[miMensaje2][responseIndex2] + ".jpg"
-      comando.channel.send({files: [name]});
-    }
   }
 
 };
