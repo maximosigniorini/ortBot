@@ -14,43 +14,43 @@ module.exports = {
     return dict;
   },
 
-  fotos: function(miMensaje,comando,data){
+  fotos: function(miMensaje,comando,data,miMensaje2){
 
     if(miMensaje in data){
       let totalResponses = data[miMensaje].length
       let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
       let name = "./img/" + data[miMensaje][responseIndex] + ".jpg"
 
-      switch (miMensaje){
-        case 'Jufi':
+      switch (miMensaje2){
+        case 'jufi':
           comando.channel.send({files: [name]});
         break;
 
-        case 'Hess':
+        case 'hess':
           comando.channel.send({files: [name]});
         break;
 
-        case 'Ivi':
+        case 'ivi':
           comando.channel.send({files: [name]});
         break;
 
-        case 'Ducho':
+        case 'ducho':
           comando.channel.send({files: [name]});
         break;
 
-        case 'Rochu':
+        case 'rochu':
           comando.channel.send({files: [name]});
         break;
 
-        case 'Deluki':
+        case 'deluki':
           comando.channel.send({files: [name]});
         break;
 
-        case 'Dante':
+        case 'dante':
           comando.channel.send({files: [name]});
         break;
 
-        case 'Eze':
+        case 'eze':
           comando.channel.send({files: [name]});
         break;
       }

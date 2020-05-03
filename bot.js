@@ -47,7 +47,7 @@ client.on('message', async message => {
         message.reply(reply);
       });
 
-      misFotos.fotos(miMensaje, message, miDiccionario)
+      misFotos.fotos(miMensaje, message, miDiccionario,riveReader)
 
       if (miMensaje.length > 1) {
         leerComando(miMensaje, message).then((res) => {}).catch((err) => {});
