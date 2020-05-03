@@ -11,7 +11,6 @@ module.exports = {
       dataFilt.shift()
       newData = dataFilt
       dict[comando] = newData
-      console.log(dict)
     }
     return dict;
   },
@@ -19,60 +18,10 @@ module.exports = {
   fotos: function(miMensaje,comando,data,miMensaje2){
 
     if(miMensaje in data){
-      let totalResponses = data[miMensaje].length
+      let totalResponses = data[miMensaje2].length
       let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
-      let name = "./img/" + data[miMensaje][responseIndex] + ".jpg"
+      let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
       comando.channel.send({files: [name]});
-
-      // switch (miMensaje2){
-      //   case 'jufi':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'hess':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'ivi':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'ducho':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'rochu':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'deluki':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'dante':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'eze':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'max':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'abi':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'juan':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      //
-      //   case 'juan':
-      //     comando.channel.send({files: [name]});
-      //   break;
-      // }
     }
   }
 
