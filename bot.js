@@ -40,12 +40,13 @@ client.on('message', async message => {
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
 
       if (!(sonidos.includes(miMensaje))) {
+        misFotos.fotos(message, miDiccionario, riveReader)
         bot.reply(username, riveReader).then(function(reply) {
           message.reply(reply);
         });
       }
 
-      misFotos.fotos(message, miDiccionario, riveReader)
+
 
       if (miMensaje.length > 1) {
         leerComando(miMensaje, message).then((res) => {}).catch((err) => {});
