@@ -2,7 +2,6 @@ const {
   Client,
   MessageAttachment
 } = require('discord.js');
-//const {token,prefix} = require('./config.json');
 const client = new Client();
 const RiveScript = require('rivescript')
 let bot = new RiveScript();
