@@ -21,6 +21,7 @@ module.exports = {
     let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
     let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
     let welcome
+    console.log(miMensaje2)
 
     let mainMessage = comando.content.replace("!o",'')
     mainMessage = mainMessage.substring(1)
@@ -80,7 +81,7 @@ if(caracteres.length < 20){
 
   if(caracteres.length < 60){
     welcome.write('Welcome.png')
-    message.channel.send(``, { files: ["Welcome.png"] }) //We sent the file to the channel
+    comando.channel.send(``, { files: ["Welcome.png"] }) //We sent the file to the channel
   }
   }
 
