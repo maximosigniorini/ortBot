@@ -45,8 +45,9 @@ if(miMensaje2 in data){
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
   let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
   welcome = await jimp.read(name)
+  console.log("Image loaded")
 }
- 
+
 
 
 if(caracteres.length > 20 && caracteres.length < 60){
