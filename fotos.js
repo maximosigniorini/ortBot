@@ -23,7 +23,7 @@ module.exports = {
     let welcome
     console.log(miMensaje2)
 
-    let mainMessage = comando.content.replace("!o",'')
+    let mainMessage = comando.content.replace("o!",'')
     mainMessage = mainMessage.substring(1)
     let caracteres = mainMessage.split("")
     mainMessage = mainMessage.split(" ")
