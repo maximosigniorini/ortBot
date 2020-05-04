@@ -21,7 +21,7 @@ module.exports = {
     let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
     let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
 
-    let mainMessage = comando.content.replace("!join",'')
+    let mainMessage = comando.content.replace("!o",'')
     mainMessage = mainMessage.substring(1)
     let caracteres = mainMessage.split("")
     mainMessage = mainMessage.split(" ")
@@ -30,7 +30,6 @@ module.exports = {
     let upperText = ""
 		for(let i = 0;i < Math.round((mainMessage.length)/2);i++){
 			upperText += " " + mainMessage[i];
-
 		}
 
 		let lowerText = ""
