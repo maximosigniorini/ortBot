@@ -29,7 +29,7 @@ module.exports = {
     mainMessage = mainMessage.substring(1)
     let caracteres = mainMessage.split("")
     mainMessage = mainMessage.split(" ")
-
+    mainMessage = mainMessage.shift()
 
     let upperText = ""
 		for(let i = 0;i < Math.round((mainMessage.length)/2);i++){
