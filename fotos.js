@@ -26,9 +26,8 @@ module.exports = {
     miMensaje2 = miMensaje2.split(" ")
 
 
-    // let mainMessage = comando.content.replace("o!",'')
-    // mainMessage = mainMessage.substring(1)
-    let mainMessage = comando
+     let mainMessage = comando.content.replace("o!",'')
+     mainMessage = mainMessage.substring(1)
     let caracteres = mainMessage.split("")
     mainMessage = mainMessage.split(" ")
     mainMessage.shift()
