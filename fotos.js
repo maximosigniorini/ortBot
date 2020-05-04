@@ -17,7 +17,7 @@ module.exports = {
     return dict;
   },
 
-  fotos: function(comando,data,miMensaje2){
+  fotos: async function(comando,data,miMensaje2){
     let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
     let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
 
