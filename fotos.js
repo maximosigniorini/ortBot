@@ -26,8 +26,9 @@ module.exports = {
     miMensaje2 = miMensaje2.split(" ")
 
 
-    let mainMessage = comando.content.replace("o!",'')
-    mainMessage = mainMessage.substring(1)
+    // let mainMessage = comando.content.replace("o!",'')
+    // mainMessage = mainMessage.substring(1)
+    let mainMessage = comando
     let caracteres = mainMessage.split("")
     mainMessage = mainMessage.split(" ")
     mainMessage.shift()
@@ -55,7 +56,7 @@ if(miMensaje2[0] in data){
 
 
 
-if(caracteres.length > 20 && caracteres.length < 60){
+if(caracteres.length > 20 && caracteres.length < 60 && mainMessage.length > 0){
   welcome.print(font2, 0, welcome.bitmap.height * 0.07, {
     text: upperText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
@@ -69,7 +70,7 @@ if(caracteres.length > 20 && caracteres.length < 60){
   }, welcome.bitmap.width, welcome.bitmap.height);
 }
 
-if(caracteres.length < 20){
+if(caracteres.length < 20 && mainMessage.length > 0){
   welcome.print(font1, 0, welcome.bitmap.height * 0.07, {
     text: upperText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
@@ -83,7 +84,7 @@ if(caracteres.length < 20){
   }, welcome.bitmap.width, welcome.bitmap.height);
 }
 
-  if(caracteres.length < 60){
+  if(caracteres.length < 60 && mainMessage.length > 0){
     welcome.write('Welcome.png')
     comando.channel.send(``, { files: ["Welcome.png"] })
   }
