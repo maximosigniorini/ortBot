@@ -28,6 +28,7 @@ module.exports = {
     let mainMessage = comando.content.replace("o!",'')
     mainMessage = mainMessage.substring(1)
     let caracteres = mainMessage.split("")
+    console.log("Mensaje 31: " + mainMessage)
     mainMessage = mainMessage.split(" ")
     mainMessage = mainMessage.shift()
 
