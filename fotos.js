@@ -17,6 +17,7 @@ module.exports = {
     return dict;
   },
 
+
   fotos: async function(comando,data,miMensaje2){
     let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
     let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
@@ -30,7 +31,7 @@ module.exports = {
     let caracteres = mainMessage.split("")
     console.log("Mensaje 31: " + mainMessage)
     mainMessage = mainMessage.split(" ")
-    //mainMessage = mainMessage.shift()
+    mainMessage.shift()
 
     console.log("Mensaje meme: " + mainMessage)
 
@@ -86,7 +87,7 @@ if(caracteres.length < 20){
 
   if(caracteres.length < 60){
     welcome.write('Welcome.png')
-    comando.channel.send(``, { files: ["Welcome.png"] }) //We sent the file to the channel
+    comando.channel.send(``, { files: ["Welcome.png"] })
   }
   }
 
