@@ -20,6 +20,7 @@ module.exports = {
   fotos: async function(comando,data,miMensaje2){
     let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
     let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
+    let welcome;
 
     let mainMessage = comando.content.replace("!join",'')
     mainMessage = mainMessage.substring(1)
@@ -45,7 +46,7 @@ if(miMensaje2 in data){
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
   let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
 
-  let welcome = await jimp.read(name) //We load the image from that link
+  welcome = await jimp.read(name) //We load the image from that link
 }
 
 
