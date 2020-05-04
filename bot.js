@@ -15,6 +15,8 @@ let comando = []
 let divididosLasPelotas = []
 let miDiccionario = {}
 
+var jimp = require('jimp');
+
 bot.loadFile("./brain.rive").then(loading_done).catch(loading_error);
 miDiccionario = misFotos.data(miData.data());
 
@@ -44,6 +46,7 @@ client.on('message', async message => {
           message.reply(reply);
         });
       }
+
       misFotos.fotos(message, miDiccionario, riveReader)
 
       if (miMensaje.length > 1) {
