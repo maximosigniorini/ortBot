@@ -31,6 +31,8 @@ module.exports = {
     mainMessage = mainMessage.split(" ")
     mainMessage = mainMessage.shift()
 
+    console.log("Mensaje meme: " + mainMessage)
+
     let upperText = ""
 		for(let i = 0;i < Math.round((mainMessage.length)/2);i++){
 			upperText += " " + mainMessage[i];
@@ -44,9 +46,9 @@ module.exports = {
 }
 
 if(miMensaje2[0] in data){
-  let totalResponses = data[miMensaje2].length
+  let totalResponses = data[miMensaje2[0]].length
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
-  let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
+  let name = "./img/" + data[miMensaje2[0]][responseIndex] + ".jpg"
   welcome = await jimp.read(name)
   console.log("Image loaded")
 }
