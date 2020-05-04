@@ -83,7 +83,7 @@ if(caracteres.length < 20 && mainMessage.length > 0){
   }, welcome.bitmap.width, welcome.bitmap.height);
 }
 
-  if(caracteres.length < 60){
+  if(caracteres.length < 60 && mainMessage.length > 0){
     welcome.write('Welcome.png')
     comando.channel.send(``, { files: ["Welcome.png"] })
   }
