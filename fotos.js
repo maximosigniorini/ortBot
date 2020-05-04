@@ -1,6 +1,4 @@
 var jimp = require('jimp');
-let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
-let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
 
 module.exports = {
   data: function (data) {
@@ -20,6 +18,8 @@ module.exports = {
   },
 
   fotos: function(comando,data,miMensaje2){
+    let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
+    let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
 
     let mainMessage = comando.content.replace("!join",'')
     mainMessage = mainMessage.substring(1)

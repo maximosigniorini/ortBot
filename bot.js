@@ -15,8 +15,6 @@ let comando = []
 let divididosLasPelotas = []
 let miDiccionario = {}
 
-var jimp = require('jimp');
-
 bot.loadFile("./brain.rive").then(loading_done).catch(loading_error);
 miDiccionario = misFotos.data(miData.data());
 
