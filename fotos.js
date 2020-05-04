@@ -21,7 +21,8 @@ module.exports = {
     let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
     let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
     let welcome
-    console.log(miMensaje2)
+
+    miMensaje2 = miMensaje2.split(" ")
 
     let mainMessage = comando.content.replace("o!",'')
     mainMessage = mainMessage.substring(1)
@@ -41,7 +42,7 @@ module.exports = {
 		}
 }
 
-if(miMensaje2 in data){
+if(miMensaje2[0] in data){
   let totalResponses = data[miMensaje2].length
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
   let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
