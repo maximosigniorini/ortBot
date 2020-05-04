@@ -24,22 +24,21 @@ module.exports = {
     let welcome
 
     miMensaje2 = miMensaje2.split(" ")
-    console.log(miMensaje2)
+
 
     let mainMessage = comando.content.replace("o!",'')
     mainMessage = mainMessage.substring(1)
     let caracteres = mainMessage.split("")
-    console.log("Mensaje 31: " + mainMessage)
     mainMessage = mainMessage.split(" ")
     mainMessage.shift()
 
-    console.log("Mensaje meme: " + mainMessage)
 
     let upperText = ""
+    if(!mainMessage.length < 1){
 		for(let i = 0;i < Math.round((mainMessage.length)/2);i++){
 			upperText += " " + mainMessage[i];
 		}
-
+}
 		let lowerText = ""
 		if(!mainMessage.length < 1){
 		for(let j = Math.round((mainMessage.length)/2);j < (mainMessage.length);j++){
@@ -52,7 +51,6 @@ if(miMensaje2[0] in data){
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
   let name = "./img/" + data[miMensaje2[0]][responseIndex] + ".jpg"
   welcome = await jimp.read(name)
-  console.log("Image loaded")
 }
 
 
