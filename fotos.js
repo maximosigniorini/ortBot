@@ -28,10 +28,11 @@ module.exports = {
 
      let mainMessage = comando.content.replace("o!",'')
      mainMessage = mainMessage.substring(1)
-    let caracteres = mainMessage.split("")
-    mainMessage = mainMessage.split(" ")
-    mainMessage.shift()
+     let caracteres = mainMessage.split("")
+     mainMessage = mainMessage.split(" ")
+     mainMessage.shift()
 
+     console.log(caracteres)
 
     let upperText = ""
     if(!mainMessage.length < 1){
@@ -50,6 +51,7 @@ if(miMensaje2[0] in data){
   let totalResponses = data[miMensaje2[0]].length
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
   let name = "./img/" + data[miMensaje2[0]][responseIndex] + ".jpg"
+  console.log(name)
   welcome = await jimp.read(name)
 }
 

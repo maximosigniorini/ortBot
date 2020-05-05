@@ -46,8 +46,6 @@ client.on('message', async message => {
         });
       }
 
-
-
       if (miMensaje.length > 1) {
         leerComando(miMensaje, message).then((res) => {}).catch((err) => {});
       }
