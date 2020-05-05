@@ -23,9 +23,6 @@ module.exports = {
     let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
     let welcome
 
-    miMensaje2 = miMensaje2.split(" ")
-
-
      let mainMessage = comando.content.replace("o!",'')
      mainMessage = mainMessage.substring(1)
      mainMessage = mainMessage.split(" ")
