@@ -28,11 +28,11 @@ module.exports = {
 
      let mainMessage = comando.content.replace("o!",'')
      mainMessage = mainMessage.substring(1)
-
      mainMessage = mainMessage.split(" ")
      mainMessage.shift()
-     let caracteres = mainMessage.split("")
-     console.log(caracteres)
+
+    // let caracteres = mainMessage.split("")
+     console.log(mainMessage)
 
     let upperText = ""
     if(!mainMessage.length < 1){
