@@ -27,8 +27,13 @@ module.exports = {
      mainMessage = mainMessage.substring(1)
      mainMessage = mainMessage.split(" ")
      mainMessage.shift()
+     console.log(typeof mainMessage)
+     console.log(mainMessage)
+
      let caracteres = mainMessage.join()
+     console.log("Caracteres Join: " + caracteres)
      caracteres = caracteres.split("")
+     console.log("Caracteres Split: " + caracteres)
 
     let upperText = ""
     if(!mainMessage.length < 1){
