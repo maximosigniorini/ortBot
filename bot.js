@@ -40,7 +40,7 @@ client.on('message', async message => {
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
 
       riveReader = riveReader.split(" ")
-
+//nose :(
       let caracteres = [...riveReader]
       caracteres.shift()
       caracteres = caracteres.join()
