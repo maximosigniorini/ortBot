@@ -41,7 +41,7 @@ client.on('message', async message => {
 
       if (!(sonidos.includes(miMensaje))) {
         misFotos.fotos(message, miDiccionario, riveReader)
-        bot.reply(username, riveReader).then(function(reply) {
+        bot.reply(username, riveReader[0]).then(function(reply) {
           message.reply(reply);
         });
       }
