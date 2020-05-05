@@ -48,13 +48,13 @@ client.on('message', async message => {
       caracteres = caracteres.split("")
 
       if (!(sonidos.includes(miMensaje))) {
-  misFotos.fotos(message, miDiccionario, riveReader[0])
-  bot.reply(username, riveReader[0]).then(function(reply) {
-    if (caracteres.length < 60) {
-      message.reply(reply);
-    }
-  });
-}
+        misFotos.fotos(message, miDiccionario, riveReader[0])
+        bot.reply(username, riveReader[0]).then(function(reply) {
+          if (caracteres.length < 60) {
+            message.reply(reply);
+          }
+        });
+      }
 
       if (miMensaje.length > 1) {
         leerComando(miMensaje, message).then((res) => {}).catch((err) => {});
@@ -65,7 +65,7 @@ client.on('message', async message => {
     }
   }
 
-  if (message.content.includes(process.env.prefix) && !voiceChannel2) {
+  if (message.content.slice(3) == "t!" && !voiceChannel2) {
     message.reply("Entra al lobby potze!")
   }
 
