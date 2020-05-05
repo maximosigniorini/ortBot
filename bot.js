@@ -38,15 +38,16 @@ client.on('message', async message => {
       let username = "local-user";
       let riveReader = miMensaje.replace(process.env.prefix, ''); // remove bot name from string
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
+
       riveReader = riveReader.split(" ")
       console.log(typeof riveReader)
-      console.log("Antes de splice: " + riveReader)
-      riveReader = riveReader.splice(1)
-      console.log("Despues de splice: " + riveReader)
+      console.log(riveReader)
+      //riveReader = riveReader.splice(1)
+      //console.log("Despues de splice: " + riveReader)
 
       if (!(sonidos.includes(miMensaje))) {
-        misFotos.fotos(message, miDiccionario, riveReader)
-        bot.reply(username, riveReader).then(function(reply) {
+        misFotos.fotos(message, miDiccionario, riveReader[0])
+        bot.reply(username, riveReader[0]).then(function(reply) {
           message.reply(reply);
         });
       }
