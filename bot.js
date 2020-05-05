@@ -41,18 +41,20 @@ client.on('message', async message => {
 
       riveReader = riveReader.split(" ")
 
-      let caracteres = riveReader.shift()
+      let caracteres = riveReader
+      caracteres.shift()
       caracteres = caracteres.join()
       caracteres = caracteres.replace(",",'')
       caracteres = caracteres.split("")
-      console.log(caracteres)
 
       if (!(sonidos.includes(miMensaje))) {
-        misFotos.fotos(message, miDiccionario, riveReader[0])
-        bot.reply(username, riveReader[0]).then(function(reply) {
-          message.reply(reply);
-        });
-      }
+  misFotos.fotos(message, miDiccionario, riveReader[0])
+  bot.reply(username, riveReader[0]).then(function(reply) {
+    if (caracteres.length < 60) {
+      message.reply(reply);
+    }
+  });
+}
 
       if (miMensaje.length > 1) {
         leerComando(miMensaje, message).then((res) => {}).catch((err) => {});
