@@ -41,6 +41,12 @@ client.on('message', async message => {
 
       riveReader = riveReader.split(" ")
 
+      let caracteres = riveReader.shift()
+      caracteres = mainMessage.join()
+      caracteres = caracteres.replace(",",'')
+      caracteres = caracteres.split("")
+      console.log(caracteres)
+
       if (!(sonidos.includes(miMensaje))) {
         misFotos.fotos(message, miDiccionario, riveReader[0])
         bot.reply(username, riveReader[0]).then(function(reply) {
