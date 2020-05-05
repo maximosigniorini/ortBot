@@ -42,7 +42,7 @@ client.on('message', async message => {
       riveReader = riveReader.split(" ")
 
       let caracteres = riveReader.shift()
-      caracteres = mainMessage.join()
+      caracteres = caracteres.join()
       caracteres = caracteres.replace(",",'')
       caracteres = caracteres.split("")
       console.log(caracteres)
