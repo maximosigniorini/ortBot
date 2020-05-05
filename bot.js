@@ -65,7 +65,7 @@ client.on('message', async message => {
     }
   }
 
-  if (message.content.slice(3) == "t!" && !voiceChannel2) {
+  if (message.content.slice(3) == "o!" && !voiceChannel2) {
     message.reply("Entra al lobby potze!")
   }
 
