@@ -20,7 +20,7 @@ module.exports = {
 
   fotos: async function(comando,data,miMensaje2){
     let font1 = await jimp.loadFont("./fonts/impact_96.fnt")
-    let font2 = await jimp.loadFont("./fonts/impact_64.fnt")
+    let font2 = await jimp.loadFont("./fonts/impact_72.fnt")
     let welcome
 
      let mainMessage = comando.content.replace("o!",'')
