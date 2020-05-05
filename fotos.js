@@ -52,9 +52,8 @@ if(miMensaje2 in data){
   welcome = await jimp.read(name)
 }
 
-
-
-if(caracteres.length >= 20 && caracteres.length < 60 && mainMessage.length > 0){
+//Si hay mucho texto y la imagen es ancha
+if(caracteres.length >= 20 && caracteres.length < 60 && mainMessage.length > 0 && welcome.bitmap.width > 1400){
   welcome.print(font2, 0, welcome.bitmap.height * 0.07, {
     text: upperText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
@@ -68,7 +67,9 @@ if(caracteres.length >= 20 && caracteres.length < 60 && mainMessage.length > 0){
   }, welcome.bitmap.width, welcome.bitmap.height);
 }
 
-if(caracteres.length < 20 && mainMessage.length > 0){
+
+//Si hay mucho texto y la imagen no es ancha
+if(caracteres.length >= 20 && caracteres.length < 60 && mainMessage.length > 0 && welcome.bitmap.width < 1400){
   welcome.print(font1, 0, welcome.bitmap.height * 0.07, {
     text: upperText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
@@ -76,6 +77,21 @@ if(caracteres.length < 20 && mainMessage.length > 0){
   }, welcome.bitmap.width, welcome.bitmap.height);
 
   welcome.print(font1, 0, welcome.bitmap.height * 0.8, {
+    text: lowerText,
+    alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
+    alignmentY: jimp.VERTICAL_ALIGN_CENTER
+  }, welcome.bitmap.width, welcome.bitmap.height);
+}
+
+//Si hay poco texto
+if(caracteres.length < 20 && mainMessage.length > 0){
+  welcome.print(font2, 0, welcome.bitmap.height * 0.07, {
+    text: upperText,
+    alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
+    alignmentY: jimp.VERTICAL_ALIGN_CENTER
+  }, welcome.bitmap.width, welcome.bitmap.height);
+
+  welcome.print(font2, 0, welcome.bitmap.height * 0.8, {
     text: lowerText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
     alignmentY: jimp.VERTICAL_ALIGN_CENTER
