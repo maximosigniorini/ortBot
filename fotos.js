@@ -65,7 +65,7 @@ if(caracteres.length > 20 && caracteres.length < 60 && mainMessage.length > 0){
     alignmentY: jimp.VERTICAL_ALIGN_CENTER
   }, welcome.bitmap.width, welcome.bitmap.height);
 
-  welcome.print(font2, 0, welcome.bitmap.height * 0.9, {
+  welcome.print(font2, 0, welcome.bitmap.height * 0.8, {
     text: lowerText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
     alignmentY: jimp.VERTICAL_ALIGN_CENTER

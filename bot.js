@@ -40,10 +40,6 @@ client.on('message', async message => {
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
 
       riveReader = riveReader.split(" ")
-      console.log(typeof riveReader)
-      console.log(riveReader)
-      //riveReader = riveReader.splice(1)
-      //console.log("Despues de splice: " + riveReader)
 
       if (!(sonidos.includes(miMensaje))) {
         misFotos.fotos(message, miDiccionario, riveReader[0])
