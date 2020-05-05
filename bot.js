@@ -48,7 +48,9 @@ client.on('message', async message => {
       caracteres = caracteres.split("")
 
       if (!(sonidos.includes(miMensaje))) {
-        misFotos.fotos(message, miDiccionario, riveReader[0])
+        if(miMensaje != "help"){
+          misFotos.fotos(message, miDiccionario, riveReader[0])
+        }
         bot.reply(username, riveReader[0]).then(function(reply) {
           if (caracteres.length < 60) {
             message.reply(reply);
