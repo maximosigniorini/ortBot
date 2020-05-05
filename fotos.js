@@ -31,7 +31,7 @@ module.exports = {
      mainMessage = mainMessage.split(" ")
      mainMessage.shift()
      let caracteres = mainMessage.join()
-     caracteres = mainMessage.split("")
+     caracteres = caracteres.split("")
      console.log(caracteres.length)
 
     let upperText = ""
