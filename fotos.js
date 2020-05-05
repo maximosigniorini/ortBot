@@ -32,7 +32,6 @@ module.exports = {
      mainMessage.shift()
      let caracteres = mainMessage.join()
      caracteres = caracteres.split("")
-     console.log(caracteres.length)
 
     let upperText = ""
     if(!mainMessage.length < 1){
@@ -51,7 +50,6 @@ if(miMensaje2[0] in data){
   let totalResponses = data[miMensaje2[0]].length
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
   let name = "./img/" + data[miMensaje2[0]][responseIndex] + ".jpg"
-  console.log(name)
   welcome = await jimp.read(name)
 }
 
