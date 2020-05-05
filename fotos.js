@@ -43,10 +43,10 @@ module.exports = {
 		}
 }
 
-if(miMensaje2[0] in data){
-  let totalResponses = data[miMensaje2[0]].length
+if(miMensaje2 in data){
+  let totalResponses = data[miMensaje2].length
   let responseIndex = Math.floor(Math.random() * (totalResponses)) % (totalResponses)
-  let name = "./img/" + data[miMensaje2[0]][responseIndex] + ".jpg"
+  let name = "./img/" + data[miMensaje2][responseIndex] + ".jpg"
   welcome = await jimp.read(name)
 }
 
