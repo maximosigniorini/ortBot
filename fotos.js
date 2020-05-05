@@ -31,7 +31,7 @@ module.exports = {
      console.log(mainMessage)
 
      let caracteres = mainMessage.join()
-     caracteres.replace(",",'')
+     caracteres = caracteres.replace(",",'')
      console.log("Caracteres Join: " + caracteres)
      caracteres = caracteres.split("")
      console.log("Caracteres Split: " + caracteres)
