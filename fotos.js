@@ -54,7 +54,7 @@ if(miMensaje2 in data){
 
 
 
-if(caracteres.length > 20 && caracteres.length < 60 && mainMessage.length > 0){
+if(caracteres.length >= 20 && caracteres.length < 60 && mainMessage.length > 0){
   welcome.print(font2, 0, welcome.bitmap.height * 0.07, {
     text: upperText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,

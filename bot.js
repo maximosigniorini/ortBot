@@ -40,7 +40,7 @@ client.on('message', async message => {
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
 
       riveReader = riveReader.split(" ")
-//nose :(
+
       let caracteres = [...riveReader]
       caracteres.shift()
       caracteres = caracteres.join()
@@ -65,7 +65,7 @@ client.on('message', async message => {
     }
   }
 
-  if (message.content.slice(3) == "o!" && !voiceChannel2) {
+  if (message.content.startsWith("o!") && !voiceChannel2) {
     message.reply("Entra al lobby potze!")
   }
 
