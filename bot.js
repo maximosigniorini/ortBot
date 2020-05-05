@@ -38,7 +38,7 @@ client.on('message', async message => {
       let username = "local-user";
       let riveReader = miMensaje.replace(process.env.prefix, ''); // remove bot name from string
       riveReader = riveReader.replace(/[^a-zA-Z0-9  ]/g, "").toLowerCase(); //remove symbols
-      console.log(riveReader)
+      riveReader.splice(1)
 
       if (!(sonidos.includes(miMensaje))) {
         misFotos.fotos(message, miDiccionario, riveReader)
