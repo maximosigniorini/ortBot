@@ -27,14 +27,10 @@ module.exports = {
      mainMessage = mainMessage.substring(1)
      mainMessage = mainMessage.split(" ")
      mainMessage.shift()
-     console.log(typeof mainMessage)
-     console.log(mainMessage)
 
      let caracteres = mainMessage.join()
      caracteres = caracteres.replace(",",'')
-     console.log("Caracteres Join: " + caracteres)
      caracteres = caracteres.split("")
-     console.log("Caracteres Split: " + caracteres)
 
     let upperText = ""
     if(!mainMessage.length < 1){
@@ -79,17 +75,19 @@ if(caracteres.length < 20 && mainMessage.length > 0){
     alignmentY: jimp.VERTICAL_ALIGN_CENTER
   }, welcome.bitmap.width, welcome.bitmap.height);
 
-  welcome.print(font1, 0, welcome.bitmap.height * 0.9, {
+  welcome.print(font1, 0, welcome.bitmap.height * 0.8, {
     text: lowerText,
     alignmentX: jimp.HORIZONTAL_ALIGN_CENTER,
     alignmentY: jimp.VERTICAL_ALIGN_CENTER
   }, welcome.bitmap.width, welcome.bitmap.height);
 }
 
-  if(caracteres.length < 60){
-    welcome.write('Welcome.png')
-    comando.channel.send(``, { files: ["Welcome.png"] })
-  }
+    if(caracteres.length < 60){
+      welcome.write('Welcome.png')
+      comando.channel.send(``, { files: ["Welcome.png"] })
+    } else {
+      comando.reply("Miralo al tontitx, aprendio a escribir! Pero no escribas tanto!!")
+    }
   }
 
 };
